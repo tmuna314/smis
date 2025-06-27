@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Contracts\Role;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -18,10 +17,10 @@ class UserSeeder extends Seeder
 
         // Create the admin user if not exists
         $adminUser = User::firstOrCreate(
-            ['email' => 'muna1@gmail.com'],
+            ['email' => 'muna@gmail.com'],
             [
                 'name' => 'Muna Thapa',
-                'password' => bcrypt('Munadon123'),
+                'password' => bcrypt('passw0rd'),
             ]
         );
 

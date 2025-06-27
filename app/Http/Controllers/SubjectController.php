@@ -25,7 +25,8 @@ class SubjectController extends Controller
     {
         $faculties = Faculty::all();
         $batches = Batch::all();
-        return view('subject.create', compact('faculties', 'batches'));
+        $subjects = Subject::all();
+        return view('subject.create', compact('faculties', 'batches', 'subjects'));
     }
 
     /**

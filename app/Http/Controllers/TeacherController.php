@@ -23,7 +23,7 @@ class TeacherController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:teachers,email|unique:users,email',
-            'phone' => 'required|string|max:20',
+            'phone' => ['required', 'regex:/^\d{10,}$/'],
             'address' => 'required|string|max:255',
             'subject' => 'required|string|max:255',
             'password' => [
@@ -33,6 +33,7 @@ class TeacherController extends Controller
                 'regex:/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-={}[\]:;"<>?,.\/]).+$/'
             ],
         ], [
+            'phone.regex' => 'Number must be at least 10 digits!',
             'password.regex' => 'Password must contain at least 1 capital letter, 1 number, and 1 special character.'
         ]);
 
@@ -60,9 +61,11 @@ class TeacherController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:teachers,email,' . $id,
-            'phone' => 'required|string|max:20',
+            'phone' => ['required', 'regex:/^\d{10,}$/'],
             'address' => 'required|string|max:255',
             'subject' => 'required|string|max:255',
+        ], [
+            'phone.regex' => 'Number must be at least 10 digits!'
         ]);
 
         $teacher = Teacher::findOrFail($id);

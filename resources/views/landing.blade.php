@@ -101,7 +101,7 @@
     <div class="hero">
         <div class="container">
             <div class="hero-title">Welcome to SMIS</div>
-            <div class="hero-desc">A modern School Management Information System for seamless administration, student management, and communication.</div>
+            <div class="hero-desc">A modern Student Management Information System for seamless administration, student management, and communication.</div>
             <div class="hero-btns">
                 <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                 <a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Register</a>
@@ -119,7 +119,7 @@
             <div class="feature-item">
                 <i class="fas fa-calendar-alt"></i>
                 <h4>Academic Scheduling</h4>
-                <p>Organize classes, semesters, and batches for efficient academic planning.</p>
+                <p>Organize faculties, semesters, and batches for efficient academic planning.</p>
             </div>
             <div class="feature-item">
                 <i class="fas fa-bell"></i>

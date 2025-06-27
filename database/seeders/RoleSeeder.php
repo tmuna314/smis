@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class RoleSeeder extends Seeder
 {
@@ -20,7 +19,7 @@ class RoleSeeder extends Seeder
 
         // Create each role if it doesn't exist
         foreach ($roles as $role) {
-            \Spatie\Permission\Models\Role::firstOrCreate(['name' => $role]);
+            Role::firstOrCreate(['name' => $role]);
         }
 
         // Define permissions
@@ -31,12 +30,12 @@ class RoleSeeder extends Seeder
             'delete attendance'
         ];
         foreach ($permissions as $permission) {
-            \Spatie\Permission\Models\Permission::firstOrCreate(['name' => $permission]);
+            Permission::firstOrCreate(['name' => $permission]);
         }
 
-        $teacherRole = \Spatie\Permission\Models\Role::where('name', 'Teacher')->first();
-        $studentRole = \Spatie\Permission\Models\Role::where('name', 'Student')->first();
-        $adminRole = \Spatie\Permission\Models\Role::where('name', 'Admin')->first();
+        $teacherRole = Role::where('name', 'Teacher')->first();
+        $studentRole = Role::where('name', 'Student')->first();
+        $adminRole = Role::where('name', 'Admin')->first();
 
         if ($teacherRole) {
             // Assign all permissions that start with 'view ' or contain 'attendance' to Teacher

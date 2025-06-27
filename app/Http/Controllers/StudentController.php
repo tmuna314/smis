@@ -30,26 +30,29 @@ class StudentController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:students,email|unique:users,email',
             'college_email' => 'nullable|email',
-            'mobile' => 'required|string|max:15',
+            'mobile' => ['required', 'regex:/^\\d{10,}$/'],
             'landline' => 'nullable|string|max:15',
             'blood_group' => 'nullable|string|max:5',
             'date_of_birth' => 'required|date',
             'batch_id' => 'required|integer',
             'father_name' => 'required|string|max:255',
-            'father_mobile' => 'required|string|max:15',
+            'father_mobile' => ['required', 'regex:/^\\d{10,}$/'],
             'father_email' => 'required|email',
             'father_occupation' => 'required|string',
             'mother_name' => 'required|string|max:255',
-            'mother_mobile' => 'required|string|max:15',
+            'mother_mobile' => ['required', 'regex:/^\\d{10,}$/'],
             'mother_email' => 'required|email',
             'mother_occupation' => 'required|string',
             'password' => [
                 'required',
                 'confirmed',
                 'min:6',
-                'regex:/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-={}[\]:;"<>?,.\/]).+$/'
+                'regex:/^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-={}[\\]:;\"<>?,.\\/]).+$/'
             ],
         ], [
+            'mobile.regex' => 'Number must be at least 10 digits!',
+            'father_mobile.regex' => 'Number must be at least 10 digits!',
+            'mother_mobile.regex' => 'Number must be at least 10 digits!',
             'password.regex' => 'Password must contain at least 1 capital letter, 1 number, and 1 special character.'
         ]);
 
@@ -78,19 +81,23 @@ class StudentController extends Controller
             'name' => 'required|string|max:255',
             'email' => "required|email|unique:students,email,$id",
             'college_email' => 'nullable|email',
-            'mobile' => 'required|string|max:15',
+            'mobile' => ['required', 'regex:/^\d{10,}$/'],
             'landline' => 'nullable|string|max:15',
             'blood_group' => 'nullable|string|max:5',
             'date_of_birth' => 'required|date',
             'batch_id' => 'required|integer',
             'father_name' => 'required|string|max:255',
-            'father_mobile' => 'required|string|max:15',
+            'father_mobile' => ['required', 'regex:/^\d{10,}$/'],
             'father_email' => 'required|email',
             'father_occupation' => 'required|string',
             'mother_name' => 'required|string|max:255',
-            'mother_mobile' => 'required|string|max:15',
+            'mother_mobile' => ['required', 'regex:/^\d{10,}$/'],
             'mother_email' => 'required|email',
             'mother_occupation' => 'required|string',
+        ], [
+            'mobile.regex' => 'Number must be at least 10 digits!',
+            'father_mobile.regex' => 'Number must be at least 10 digits!',
+            'mother_mobile.regex' => 'Number must be at least 10 digits!'
         ]);
 
         $student->update($validated);

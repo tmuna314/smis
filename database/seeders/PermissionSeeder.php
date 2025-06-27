@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 // use Spatie\Permission\Contracts\Permission;
 use Spatie\Permission\Models\Permission;
@@ -32,12 +31,10 @@ public function run()
         'edit attendance',
         'view attendance',
         'delete attendance',
-        // Role permissions
         'view role',
         'create role',
         'edit role',
         'delete role',
-        // Add more as needed
     ];
 
     foreach ($permissions as $permission) {

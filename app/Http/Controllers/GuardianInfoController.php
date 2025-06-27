@@ -23,11 +23,14 @@ class GuardianInfoController extends Controller
         $request->validate([
             'student_id' => 'required|integer',
             'name' => 'required|string|max:100',
-            'mobile' => 'required|string|max:20',
+            'mobile' => ['required', 'regex:/^\d{10,}$/'],
             'email' => 'nullable|email',
-            'contact_no' => 'nullable|string|max:20',
+            'contact_no' => ['nullable', 'regex:/^\d{10,}$/'],
             'contact_address' => 'nullable|string|max:255',
             'relation' => 'required|string|max:50',
+        ], [
+            'mobile.regex' => 'Number must be at least 10 digits!',
+            'contact_no.regex' => 'Number must be at least 10 digits!'
         ]);
 
         GuardianInfo::create($request->all());
@@ -46,11 +49,14 @@ class GuardianInfoController extends Controller
         $request->validate([
             'student_id' => 'required|integer',
             'name' => 'required|string|max:100',
-            'mobile' => 'required|string|max:20',
+            'mobile' => ['required', 'regex:/^\d{10,}$/'],
             'email' => 'nullable|email',
-            'contact_no' => 'nullable|string|max:20',
+            'contact_no' => ['nullable', 'regex:/^\d{10,}$/'],
             'contact_address' => 'nullable|string|max:255',
             'relation' => 'required|string|max:50',
+        ], [
+            'mobile.regex' => 'Number must be at least 10 digits!',
+            'contact_no.regex' => 'Number must be at least 10 digits!'
         ]);
 
         $guardianInfo = GuardianInfo::findOrFail($id);
