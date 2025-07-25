@@ -108,12 +108,22 @@
 
         <div class="mb-3">
             <label class="form-label">Mother's Email</label>
-            <input type="email" class="form-control" name="mother_email">
+            <input type="email" class="form-control @error('mother_email') is-invalid @enderror" name="mother_email" value="{{ old('mother_email') }}">
+            @error('mother_email')
+                <span class="invalid-feedback d-block" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
 
         <div class="mb-3">
             <label class="form-label">Mother's Occupation</label>
-            <input type="text" class="form-control" name="mother_occupation">
+            <input type="text" class="form-control @error('mother_occupation') is-invalid @enderror" name="mother_occupation" value="{{ old('mother_occupation') }}">
+            @error('mother_occupation')
+                <span class="invalid-feedback d-block" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
 
         <div class="mb-3 position-relative">
@@ -152,17 +162,17 @@
 
 @push('scripts')
 <script>
-function togglePassword(fieldId, el) {
-    const input = document.getElementById(fieldId);
-    if (input.type === 'password') {
-        input.type = 'text';
-        el.querySelector('i').classList.remove('fa-eye');
-        el.querySelector('i').classList.add('fa-eye-slash');
-    } else {
-        input.type = 'password';
-        el.querySelector('i').classList.remove('fa-eye-slash');
-        el.querySelector('i').classList.add('fa-eye');
-    }
-}
-</script>
+// function togglePassword(fieldId, el) {
+//     const input = document.getElementById(fieldId);
+//     if (input.type === 'password') {
+//         input.type = 'text';
+//         el.querySelector('i').classList.remove('fa-eye');
+//         el.querySelector('i').classList.add('fa-eye-slash');
+//     } else {
+//         input.type = 'password';
+//         el.querySelector('i').classList.remove('fa-eye-slash');
+//         el.querySelector('i').classList.add('fa-eye');
+//     }
+// }
+// </script>
 @endpush

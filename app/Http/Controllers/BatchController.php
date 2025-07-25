@@ -21,7 +21,8 @@ class BatchController extends Controller
      */
     public function create()
     {
-        return view('batch.create');
+        $faculties = \App\Models\Faculty::all();
+        return view('batch.create', compact('faculties'));
     }
 
     /**

@@ -32,14 +32,9 @@
             <label class="form-check-label">Is For All</label>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Is For</label>
-            <input type="text" class="form-control" name="isFor">
-        </div>
-
-        <div class="mb-3">
+       <div class="mb-3">
             <label class="form-label">Created By</label>
-            <input type="text" class="form-control" name="created_by">
+            <input type="text" class="form-control" name="created_by" value="{{ auth()->user()->name }}" readonly>
         </div>
 
         <button type="submit" class="btn btn-success">Submit</button>

@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+            background: linear-gradient(135deg, #202c2f 0%, #3d5c63 100%);
             min-height: 100vh;
         }
         .hero {
@@ -38,13 +38,13 @@
             border-radius: 30px;
             border: none;
             color: #fff;
-            background: #2193b0;
+            background: #1e5765;
             transition: background 0.3s;
             text-decoration: none;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
         .hero-btns a:hover {
-            background: #6dd5ed;
+            background: #1e5765;
             color: #222;
         }
         .features {
@@ -56,7 +56,7 @@
             padding: 40px 20px;
         }
         .features h2 {
-            color: #2193b0;
+            color: #1e5765;
             font-weight: 700;
             margin-bottom: 30px;
         }
@@ -78,7 +78,7 @@
         }
         .feature-item i {
             font-size: 2.5rem;
-            color: #2193b0;
+            color: #1e5765;
             margin-bottom: 12px;
         }
         .feature-item h4 {
@@ -104,7 +104,8 @@
             <div class="hero-desc">A modern Student Management Information System for seamless administration, student management, and communication.</div>
             <div class="hero-btns">
                 <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Register</a>
+                <a href="{{ route('student.create') }}"><i class="fas fa-user-plus"></i> Register as Student</a>
+                <a href="{{ route('teacher.create') }}"><i class="fas fa-user-plus"></i> Register as Teacher</a>
             </div>
         </div>
     </div>

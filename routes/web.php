@@ -26,13 +26,14 @@ Route::get('/', function () {
 
 
 Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
+Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
 Route::get('/teacher/create', [TeacherController::class, 'create'])->name('teacher.create');
+Route::post('/teacher', [TeacherController::class, 'store'])->name('teacher.store');
+
 
 Route::middleware(['auth'])->group(function(){
-
 //student
 Route::get('/student/index',[StudentController::class,'index'])->name('student.index');
-Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
 Route::get('/student/{id}/edit',[StudentController::class,'edit'])->name('student.edit');
 Route::delete('/student/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
 Route::put('/student/{id}/edit', [StudentController::class, 'update'])->name('student.update');
@@ -118,7 +119,6 @@ Route::delete('address-info/{id}', [AddressInfoController::class, 'destroy'])->n
 
 // Teacher
 Route::get('/teacher', [TeacherController::class, 'index'])->name('teacher.index');
-Route::post('/teacher', [TeacherController::class, 'store'])->name('teacher.store');
 Route::get('/teacher/{id}/edit', [TeacherController::class, 'edit'])->name('teacher.edit');
 Route::put('/teacher/{id}', [TeacherController::class, 'update'])->name('teacher.update');
 Route::delete('/teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');

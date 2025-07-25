@@ -14,7 +14,7 @@
                 <th>Created By</th>
                 <th>Created At</th>
                 <th>Updated At</th>
-                <th>Faculty ID</th>
+                <th>Faculty</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -27,7 +27,7 @@
                     <td>{{ $batch->created_by }}</td>
                     <td>{{ $batch->created_at }}</td>
                     <td>{{ $batch->updated_at }}</td>
-                    <td>{{ $batch->faculty_id }}</td>
+                    <td>{{ $batch->faculty->name ?? 'N/A' }}</td>
                     <td>
                         <a href="{{ route('batch.edit', $batch->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="{{ route('batch.destroy', $batch->id) }}" method="POST" class="d-inline">

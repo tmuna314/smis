@@ -8,28 +8,43 @@
                 <div class="card-header bg-primary text-white">
                     <h3 class="mb-0">Create Teacher</h3>
                 </div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                 <div class="card-body">
                     <form action="{{ route('teacher.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" required>
+                            @error('name') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" name="email" class="form-control" required>
+                            @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone</label>
                             <input type="text" name="phone" class="form-control" required>
+                            @error('phone') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
                             <input type="text" name="address" class="form-control" required>
+                            @error('address') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3">
                             <label for="subject" class="form-label">Subject</label>
                             <input type="text" name="subject" class="form-control" required>
+                            @error('subject') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                         <div class="mb-3 position-relative">
                             <label for="password" class="form-label">Password</label>
