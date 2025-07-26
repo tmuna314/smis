@@ -11,26 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->string('registration_no')->nullable();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('college_email');
-            $table->string('mobile');
-            $table->string('landline');
-            $table->string('blood_group');
-            $table->string('date_of_birth');
-            $table->integer('batch_id');
+            $table->string('mobile', 15);
+            $table->string('qualification');
+            $table->string('designation');
+            $table->text('address')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->date('date_of_joining')->nullable();
+            $table->decimal('salary', 10, 2)->nullable();
             $table->timestamps();
         });
     }
-    
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('teachers');
     }
 };

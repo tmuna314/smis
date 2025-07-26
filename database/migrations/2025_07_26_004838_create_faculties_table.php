@@ -12,12 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('faculties', function (Blueprint $table) {
-            $table->id(); // Primary key
+            $table->id();
             $table->string('name');
-            $table->string('shortcode');
-            $table->string('affiliated_to');
-            $table->string('created_by');
-            $table->timestamps(); // created_at and updated_at
+            $table->text('description')->nullable();
+            $table->timestamps();
         });
     }
 

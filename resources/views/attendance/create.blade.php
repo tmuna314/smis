@@ -28,7 +28,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="student_id" class="form-label">Student</label>
-                                <select name="student_id" class="form-select" required>
+                                <select class="form-control" name="student_id" class="form-select" required>
                                     <option value="">Select Student</option>
                                     @foreach($students as $student)
                                         <option value="{{ $student->id }}" {{ old('student_id') == $student->id ? 'selected' : '' }}>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="batch_id" class="form-label">Batch</label>
-                                <select name="batch_id" class="form-select" required>
+                                <select class="form-control" name="batch_id" class="form-select" required>
                                     <option value="">Select Batch</option>
                                     @foreach($batches as $batch)
                                         <option value="{{ $batch->id }}" {{ old('batch_id') == $batch->id ? 'selected' : '' }}>
@@ -53,7 +53,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="semester_id" class="form-label">Semester</label>
-                                <select name="semester_id" class="form-select" required>
+                                <select class="form-control" name="semester_id" class="form-select" required>
                                     <option value="">Select Semester</option>
                                     @foreach($semesters as $semester)
                                         <option value="{{ $semester->id }}" {{ old('semester_id') == $semester->id ? 'selected' : '' }}>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="subject_id" class="form-label">Subject</label>
-                                <select name="subject_id" class="form-select" required>
+                                <select class="form-control" name="subject_id" class="form-select" required>
                                     <option value="">Select Subject</option>
                                     @foreach($subjects as $subject)
                                         <option value="{{ $subject->id }}" {{ old('subject_id') == $subject->id ? 'selected' : '' }}>
@@ -78,7 +78,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="teacher_id" class="form-label">Teacher</label>
-                                <select name="teacher_id" class="form-select" required>
+                                <select class="form-control" name="teacher_id" class="form-select" required>
                                     <option value="">Select Teacher</option>
                                     @foreach($teachers as $teacher)
                                         <option value="{{ $teacher->id }}" {{ old('teacher_id') == $teacher->id ? 'selected' : '' }}>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="is_present" class="form-label">Attendance Status</label>
-                                <select name="is_present" class="form-select" required>
+                                <select class="form-control" name="is_present" class="form-select" required>
                                     <option value="1" {{ old('is_present') == '1' ? 'selected' : '' }}>Present</option>
                                     <option value="0" {{ old('is_present') == '0' ? 'selected' : '' }}>Absent</option>
                                 </select>

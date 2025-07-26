@@ -169,15 +169,27 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('teacher_assignments.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-chalkboard-teacher"></i>
+              <p>Teacher Assignments</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('semester.index') }}" class="nav-link">
               <i class="nav-icon fas fa-calendar-alt"></i>
               <p>Semesters</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('subject.index') }}" class="nav-link">
+            <a href="{{ route('leaves.index') }}" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
-              <p>Subjects</p>
+              <p>Leaves</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('attendance.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>Attendance</p>
             </a>
           </li>
           <!-- Add more main routes as needed -->

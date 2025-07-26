@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('educational_infos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
-            $table->string('symbol_no');
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->enum('level', ['SLC', 'SEE', '+2', 'Intermediate', 'Bachelor', 'Master']);
+            $table->string('institution');
             $table->string('board');
             $table->year('passed_year');
-            $table->integer('marks_obtained');
+            $table->string('grade_percentage');
             $table->timestamps();
         });
     }

@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('semesters', function (Blueprint $table) {
-            $table->id();
-            $table->string('semester_name');
-            $table->timestamps();
+        Schema::table('subjects', function (Blueprint $table) {
+            $table->foreign('semester_id')->references('id')->on('semesters')->onDelete('set null');
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('semesters');
+        Schema::table('subjects', function (Blueprint $table) {
+            $table->dropForeign(['semester_id']);
+        });
     }
 };

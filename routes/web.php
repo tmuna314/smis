@@ -18,6 +18,10 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\SemesterController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\TeacherAssignmentController;
+
 Auth::routes();
 
 Route::get('/', function () { 
@@ -132,6 +136,21 @@ Route::put('/subject/{subject}', [SubjectController::class, 'update'])->name('su
 Route::delete('/subject/{subject}', [SubjectController::class, 'destroy'])->name('subject.destroy');
 Route::get('/subject/{subject}', [SubjectController::class, 'show'])->name('subject.show');
 
+//Attendance Routes
+
+Route::get('/attendances', [AttendanceController::class, 'index'])->name('attendance.index');
+Route::get('/attendances/create', [AttendanceController::class, 'create'])->name('attendance.create');
+Route::post('/attendances', [AttendanceController::class, 'store'])->name('attendance.store');
+Route::get('/attendances/{id}/edit', [AttendanceController::class, 'edit'])->name('attendance.edit');
+Route::put('/attendances/{id}', [AttendanceController::class, 'update'])->name('attendance.update');
+Route::delete('/attendances/{id}', [AttendanceController::class, 'destroy'])->name('attendance.destroy');
+// leaves routes
+Route::get('/leaves', [LeaveController::class, 'index'])->name('leaves.index');
+Route::get('/leaves/create', [LeaveController::class, 'create'])->name('leaves.create');
+Route::post('/leaves', [LeaveController::class, 'store'])->name('leaves.store');
+Route::get('/leaves/{id}/edit', [LeaveController::class, 'edit'])->name('leaves.edit');
+Route::put('/leaves/{id}', [LeaveController::class, 'update'])->name('leaves.update');
+Route::delete('/leaves/{id}', [LeaveController::class, 'destroy'])->name('leaves.destroy');
 
 // Semester
 Route::get('/semester', [SemesterController::class, 'index'])->name('semester.index');
@@ -140,6 +159,15 @@ Route::post('/semester', [SemesterController::class, 'store'])->name('semester.s
 Route::get('/semester/{semester}/edit', [SemesterController::class, 'edit'])->name('semester.edit');
 Route::put('/semester/{semester}', [SemesterController::class, 'update'])->name('semester.update');
 Route::delete('/semester/{semester}', [SemesterController::class, 'destroy'])->name('semester.destroy');
+
+//teacher assignment
+
+Route::get('/teacherassignments', [TeacherAssignmentController::class, 'index'])->name('teacher_assignments.index');
+Route::get('/teacherassignments/create', [TeacherAssignmentController::class, 'create'])->name('teacher_assignments.create');
+Route::post('/teacherassignments', [TeacherAssignmentController::class, 'store'])->name('teacher_assignments.store');
+Route::get('/teacherassignments/{id}/edit', [TeacherAssignmentController::class, 'edit'])->name('teacher_assignments.edit');
+Route::put('/teacherassignments/{id}', [TeacherAssignmentController::class, 'update'])->name('teacher_assignments.update');
+Route::delete('/teacherassignments/{id}', [TeacherAssignmentController::class, 'destroy'])->name('teacher_assignments.destroy');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
