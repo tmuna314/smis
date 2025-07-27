@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->foreignId('subject_id')->constrained()->onDelete('cascade');
+            $table->char('teacher_id');
+            $table->char('batch_id');
+            $table->char('semester_id');
             $table->date('date');
             $table->enum('status', ['present', 'absent', 'late']);
             $table->text('remarks')->nullable();
@@ -23,7 +26,6 @@ return new class extends Migration
             $table->unique(['student_id', 'subject_id', 'date']);
         });
     }
-
     /**
      * Reverse the migrations.
      */

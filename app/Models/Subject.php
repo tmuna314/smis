@@ -10,6 +10,7 @@ class Subject extends Model
         'class',
         'faculty_id',
         'batch_id',
+        'semester_id',
         'subject_name',
     ];
 
@@ -21,5 +22,10 @@ class Subject extends Model
     public function batch()
     {
         return $this->belongsTo(Batch::class);
+    }
+
+    public function semester()
+    {
+        return $this->belongsTo(Semester::class);
     }
 }

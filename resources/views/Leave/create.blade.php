@@ -28,13 +28,13 @@
         </div>
 
         <div class="mb-3">
-            <label for="from_date" class="form-label">From Date</label>
-            <input type="date" name="from_date" id="from_date" class="form-control" value="{{ old('from_date') }}" required>
+            <label for="start_date" class="form-label">From Date</label>
+            <input type="date" name="start_date" id="start_date" class="form-control" value="{{ old('start_date') }}" required>
         </div>
 
         <div class="mb-3">
-            <label for="to_date" class="form-label">To Date</label>
-            <input type="date" name="to_date" id="to_date" class="form-control" value="{{ old('to_date') }}" required>
+            <label for="end_date" class="form-label">To Date</label>
+            <input type="date" name="end_date" id="end_date" class="form-control" value="{{ old('end_date') }}" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit Leave Request</button>

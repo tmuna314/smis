@@ -15,13 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('mobile', 15);
-            $table->string('qualification');
-            $table->string('designation');
+            $table->string('phone')->nullable();
             $table->text('address')->nullable();
-            $table->date('date_of_birth')->nullable();
-            $table->date('date_of_joining')->nullable();
-            $table->decimal('salary', 10, 2)->nullable();
+            $table->string('subject')->nullable();
             $table->timestamps();
         });
     }

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('code')->unique();
-            $table->text('description')->nullable();
-            $table->integer('credits')->default(3);
-            $table->unsignedBigInteger('semester_id')->nullable();
+            $table->string('class');
+            $table->string('semester_id');
+            $table->foreignId('faculty_id')->constrained()->onDelete('cascade');
+            $table->foreignId('batch_id')->constrained()->onDelete('cascade');
+            $table->string('subject_name');
             $table->timestamps();
         });
     }

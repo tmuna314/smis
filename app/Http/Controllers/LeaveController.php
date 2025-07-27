@@ -23,8 +23,8 @@ class LeaveController extends Controller
         $request->validate([
             'student_id' => 'required|integer',
             'reason' => 'required|string',
-            'from_date' => 'required|date',
-            'to_date' => 'required|date|after_or_equal:from_date',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
         ]);
 
         Leave::create($request->all());

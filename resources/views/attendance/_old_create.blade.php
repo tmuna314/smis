@@ -57,7 +57,7 @@
                                     <option value="">Select Semester</option>
                                     @foreach($semesters as $semester)
                                         <option value="{{ $semester->id }}" {{ old('semester_id') == $semester->id ? 'selected' : '' }}>
-                                            {{ $semester->semester_name }}
+                                            {{ $semester->name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -68,7 +68,7 @@
                                     <option value="">Select Subject</option>
                                     @foreach($subjects as $subject)
                                         <option value="{{ $subject->id }}" {{ old('subject_id') == $subject->id ? 'selected' : '' }}>
-                                            {{ $subject->subject_name }}
+                                            {{ $subject->name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -81,24 +81,24 @@
                                 <select class="form-control" name="teacher_id" class="form-select" required>
                                     <option value="">Select Teacher</option>
                                     @foreach($teachers as $teacher)
-                                        <option value="{{ $teacher->name }}" {{ old('teacher_id') == $teacher->name ? 'selected' : '' }}>
+                                        <option value="{{ $teacher->id }}" {{ old('teacher_id') == $teacher->id ? 'selected' : '' }}>
                                             {{ $teacher->name }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="status" class="form-label">Attendance Status</label>
-                                <select class="form-control" name="status" class="form-select" required>
-                                    <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Present</option>
-                                    <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Absent</option>
+                                <label for="is_present" class="form-label">Attendance Status</label>
+                                <select class="form-control" name="is_present" class="form-select" required>
+                                    <option value="1" {{ old('is_present') == '1' ? 'selected' : '' }}>Present</option>
+                                    <option value="0" {{ old('is_present') == '0' ? 'selected' : '' }}>Absent</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="date" class="form-label">Attendance Date</label>
-                            <input type="date" name="date" class="form-control" value="{{ old('date') }}" required>
+                            <label for="attendance_at" class="form-label">Attendance Date</label>
+                            <input type="date" name="attendance_at" class="form-control" value="{{ old('attendance_at') }}" required>
                         </div>
 
                         <div class="d-flex justify-content-end">

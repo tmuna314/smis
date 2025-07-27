@@ -12,15 +12,15 @@ class Leave extends Model
     protected $fillable = [
         'student_id',
         'reason',
-        'from_date',
-        'to_date',
+        'start_date',
+        'end_date',
         'status'
     ];
 
-    // ✅ This will make from_date & to_date act like Carbon objects
+    // ✅ This will make start_date', & end_date act like Carbon objects
     protected $casts = [
-        'from_date' => 'date',
-        'to_date' => 'date',
+        'start_date' => 'date',
+        'end_date' => 'date',
     ];
 
     // Optional: define relationship with Student (if model exists)

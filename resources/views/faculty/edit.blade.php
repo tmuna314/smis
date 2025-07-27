@@ -28,7 +28,7 @@
 
         <div class="mb-3">
             <label>Created By</label>
-            <input type="text" name="created_by" class="form-control @error('created_by') is-invalid @enderror" value="{{ old('created_by', $faculty->created_by) }}">
+            <input type="text" name="created_by" class="form-control @error('created_by') is-invalid @enderror" value="{{ old('created_by', auth()->user()->name ?? $faculty->created_by) }}" readonly>
             @error('created_by') <div class="invalid-feedback">{{ $message }}</div> @enderror
         </div>
 

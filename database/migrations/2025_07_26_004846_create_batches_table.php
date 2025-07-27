@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('batches', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('is_active')->default('yes');
             $table->foreignId('faculty_id')->constrained()->onDelete('cascade');
-            $table->year('start_year');
-            $table->year('end_year');
+            $table->string('created_by')->nullable();
             $table->timestamps();
         });
     }

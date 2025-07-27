@@ -29,8 +29,8 @@
                 <td>{{ $leave->id }}</td>
                 <td>{{ $leave->student_id }}</td>
                 <td>{{ $leave->reason }}</td>
-                <td>{{ $leave->from_date->format('d/m/Y') }}</td>
-                <td>{{ $leave->to_date->format('d/m/Y') }}</td>
+                <td>{{ $leave->start_date->format('d/m/Y') }}</td>
+                <td>{{ $leave->end_date->format('d/m/Y') }}</td>
                 <td>
                     @if($leave->status == 'pending')
                         <span class="badge bg-warning text-dark">Pending</span>

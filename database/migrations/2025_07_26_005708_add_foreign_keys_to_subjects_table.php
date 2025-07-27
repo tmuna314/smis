@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('subjects', function (Blueprint $table) {
-            $table->foreign('semester_id')->references('id')->on('semesters')->onDelete('set null');
-        });
+        // No foreign keys to add since Subject model doesn't use semester_id
+        // The subjects table already has faculty_id and batch_id foreign keys
     }
 
     /**
@@ -21,8 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('subjects', function (Blueprint $table) {
-            $table->dropForeign(['semester_id']);
-        });
+        // Nothing to rollback
     }
 };

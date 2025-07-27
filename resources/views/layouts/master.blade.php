@@ -133,7 +133,7 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('faculty.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-chalkboard-teacher"></i>
+              <i class="nav-icon fas fa-university"></i>
               <p>Faculties</p>
             </a>
           </li>
@@ -168,10 +168,17 @@
               <p>Teachers</p>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{ route('teacher_assignments.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-chalkboard-teacher"></i>
+              <i class="nav-icon fas fa-tasks"></i>
               <p>Teacher Assignments</p>
+            </a>
+          </li> --}}
+           
+          <li class="nav-item">
+            <a href="{{ route('subject.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-book-open"></i>
+              <p>Subjects</p>
             </a>
           </li>
           <li class="nav-item">
@@ -182,13 +189,13 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('leaves.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+              <i class="nav-icon fas fa-calendar-times"></i>
               <p>Leaves</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="{{ route('attendance.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+              <i class="nav-icon fas fa-clipboard-check"></i>
               <p>Attendance</p>
             </a>
           </li>

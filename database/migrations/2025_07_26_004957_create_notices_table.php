@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
-            $table->enum('type', ['general', 'urgent', 'event', 'academic']);
-            $table->boolean('is_active')->default(true);
-            $table->date('publish_date');
-            $table->date('expiry_date')->nullable();
+            $table->text('description'); 
+            $table->boolean('isTuRelated')->default(true);
+            $table->boolean('isHoliday')->default(false);
+            $table->boolean('isForAll')->default(true);
+            $table->string('isFor')->nullable();
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

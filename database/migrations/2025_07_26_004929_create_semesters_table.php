@@ -13,11 +13,7 @@ return new class extends Migration
     {
         Schema::create('semesters', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('number');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->boolean('is_active')->default(false);
+            $table->string('semester_name');
             $table->timestamps();
         });
     }

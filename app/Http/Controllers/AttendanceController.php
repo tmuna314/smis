@@ -34,11 +34,12 @@ class AttendanceController extends Controller
         $validated = $request->validate([
             'student_id'    => 'required|exists:students,id',
             'batch_id'      => 'required|integer|exists:batches,id',
-            'semester_id'   => 'required|integer|exists:semesters,id',
             'subject_id'    => 'required|integer|exists:subjects,id',
-            'teacher_id'    => 'required|integer|exists:teachers,id',
-            'is_present'    => 'required|boolean',
-            'attendance_at' => 'required|date',
+            'status'    => 'required|boolean',
+            'teacher_id'    => 'required',
+            'batch_id'      => 'required',
+            'semester_id'   => 'required',
+            'date' => 'required|date',
         ]);
 
         Attendance::create($validated);

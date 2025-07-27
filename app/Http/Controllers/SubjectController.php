@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subject;
 use App\Models\Faculty;
 use App\Models\Batch;
+use App\Models\Semester;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -25,8 +26,9 @@ class SubjectController extends Controller
     {
         $faculties = Faculty::all();
         $batches = Batch::all();
+        $semesters = Semester::all();
         $subjects = Subject::all();
-        return view('subject.create', compact('faculties', 'batches', 'subjects'));
+        return view('subject.create', compact('faculties', 'batches', 'semesters', 'subjects'));
     }
 
     /**
@@ -38,9 +40,10 @@ class SubjectController extends Controller
             'class' => 'required|string|max:255',
             'faculty_id' => 'required|exists:faculties,id',
             'batch_id' => 'required|exists:batches,id',
+            'semester_id' => 'required|exists:semesters,id',
             'subject_name' => 'required|string|max:255',
         ]);
-        Subject::create($request->only('class', 'faculty_id', 'batch_id', 'subject_name'));
+        Subject::create($request->only('class', 'faculty_id', 'batch_id', 'semester_id', 'subject_name'));
         return redirect()->route('subject.index')->with('success', 'Subject created successfully.');
     }
 

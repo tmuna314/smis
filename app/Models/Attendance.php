@@ -10,8 +10,8 @@ class Attendance extends Model
     use HasFactory;
 
     // Allow mass assignment for these fields
-    protected $fillable = ['student_id', 'faculty_id', 'batch_id',
-    'semester_id','subject_id','teacher_id','is_present','attendance_at'];
+    protected $fillable = ['student_id', 'faculty_id',
+    'semester_id','subject_id','teacher_id','batch_id', 'status','date','remarks'];
 
     // Define relationship: Attendance belongs to a Student
     public function student()
@@ -19,4 +19,3 @@ class Attendance extends Model
         return $this->belongsTo(Student::class);
     }
 }
-

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\User;
+use App\Models\Batch;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class StudentController extends Controller
     }
 
     public function create() {
-        return view('student.create');
+        $batches = Batch::all();
+        return view('student.create', compact('batches'));
     }
 
     public function store(Request $request) {

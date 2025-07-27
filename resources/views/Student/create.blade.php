@@ -69,8 +69,22 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Batch ID</label>
-            <input type="number" class="form-control" name="batch_id">
+            <label class="form-label">Batch</label>
+            <select class="form-control @error('batch_id') is-invalid @enderror" name="batch_id" required>
+                <option value="">-- Select Batch --</option>
+                @if(isset($batches))
+                    @foreach($batches as $batch)
+                        <option value="{{ $batch->id }}" {{ old('batch_id') == $batch->id ? 'selected' : '' }}>
+                            {{ $batch->name }} ({{ $batch->start_year }}-{{ $batch->end_year }})
+                        </option>
+                    @endforeach
+                @endif
+            </select>
+            @error('batch_id')
+                <span class="invalid-feedback d-block" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
 
         {{-- Guardian Info --}}

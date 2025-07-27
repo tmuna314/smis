@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('faculties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->string('affiliated_to')->nullable();
+            $table->text('shortcode')->nullable();
+            $table->string('created_by')->nullable();
             $table->timestamps();
         });
     }

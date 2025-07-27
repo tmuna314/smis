@@ -17,7 +17,7 @@ class RoleAndPermissionSeeder extends Seeder
             'create notice',
             'create student',
             'create teacher',
-            'create faculty',
+            'create faculties',
             'create batch',
             'create subject',
             'create semester',
@@ -31,7 +31,7 @@ class RoleAndPermissionSeeder extends Seeder
 
             'edit student',
             'edit teacher',
-            'edit faculty',
+            'edit faculties',
             'edit batch',
             'edit subject',
             'edit semester',
@@ -41,7 +41,7 @@ class RoleAndPermissionSeeder extends Seeder
 
             'delete student',
             'delete teacher',
-            'delete faculty',
+            'delete faculties',
             'delete batch',
             'delete subject',
             'delete semester',
